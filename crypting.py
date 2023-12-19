@@ -5,30 +5,24 @@ from cryptography.fernet import Fernet
 
 class SecureNotepadApp:
     def __init__(self):
-        # Create the main window
+
         self.root = tk.Tk()
         self.root.title("Secure Notepad")
 
-        # Load and display the image at the top
         self.load_and_display_image()
 
-        # Entry for title
         self.title_label = tk.Label(self.root, text="Enter Title:")
         self.title_label.pack()
         self.title_entry = tk.Entry(self.root, width=40)
         self.title_entry.pack()
 
-        # Text area for notes
         self.note_label = tk.Label(self.root, text="Enter Note:")
         self.note_label.pack()
         self.note_text = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, width=40, height=10)
         self.note_text.pack(pady=10)
-
-        # Save Note button
         save_note_button = tk.Button(self.root, text="Save Note", command=self.save_note)
         save_note_button.pack()
 
-        # Open Note button
         open_note_button = tk.Button(self.root, text="Open Note", command=self.open_note)
         open_note_button.pack()
 
